@@ -1,0 +1,19 @@
+{
+  "name": "discord-hcbot",
+  "version": "1.0.0",
+  "description": "Hardcore stats bot for MCC",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TwigzieTTV",
+  "license": "ISC",
+  "dependencies": {
+    "atob": "^2.1.2",
+    "btoa": "^1.2.1",
+    "discord-oauth2": "^2.2.0",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  }
+}
