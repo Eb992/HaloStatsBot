@@ -29,22 +29,30 @@ function load(client) {
 }
 
 function build(message) {
-	let data = message.content.replace('!hc', '').split(/ +/);
+	let data = message.content.split(/ +/);
 	if (data.length <= 0) {
 		return null;
 	}
 	else {
 
-		const type = (data.length >= 1) ? data[0].toLowerCase() : null;
-		const args = (data.length >= 2)
-			? (data.length === 2)
-				? data[1]
-				: message.substr((type.length + 1) + (args.length + 1)) || null
+		let commandType = (data.length >= 1) 
+			? data[0].toLowerCase() 
+			: null;
+
+		let commandName = (data.length >= 2) 
+			? data[1].toLowerCase() 
+			: null;
+
+		let commandArgs = (data.length >= 3) 
+			? (data.length === 3)
+				? data[2]
+				: message.substr((commandType.length + 1) + (commandName.length + 1)) || null
 			: null;
 
 		return {
-			type: type,
-			arguments: args,
+			type: commandType,
+			name: commandName,
+			args: commandArgs
 		};
 	}
 }
