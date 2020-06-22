@@ -46,7 +46,7 @@ function build(message) {
 		let commandArgs = (data.length >= 3) 
 			? (data.length === 3)
 				? data[2]
-				: message.substr((commandType.length + 1) + (commandName.length + 1)) || null
+				: message.content.substr((commandType.length + 1) + (commandName.length + 1)) || null
 			: null;
 
 		return {
