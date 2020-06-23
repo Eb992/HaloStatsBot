@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 require('dotenv').config();
 
 const discord = require('discord.js');
@@ -7,11 +5,21 @@ const client = new discord.Client({
 	disableEveryone: false
 });
 const commands = require('./scripts/commands');
-const settings = require('./scripts/settings');
 const utilities = require('./scripts/utilities');
+
 process.on('uncaughtException', (e, o) => {
 	console.log('[UNHANDLED ERROR]', e, o);
 });
+
+const isKnownCommand = (value) => {
+	switch (value.toLowerCase()) {
+		case '!hc':
+		case '!social':
+		case '!ranked': return true;
+		default:
+			return false;
+	}
+};
 
 client.on('ready', async () => {
 	try {
@@ -32,46 +40,77 @@ client.on('message', async (message) => {
 			return;
 		if (message.content.startsWith(process.env.BOT_PREFIX) === false) 
 			return;
-		
-		let command = commands.build(message);
-		if (command === null) {
-			return;
+
+		await message.delete()
+			.catch((e) => console.log('[ERROR REMOVING MESSAGE]', e));
+
+		if (message.channel.id !== process.env.BOT_CHANNEL) {
+			let name = await utilities.getChannelName(client, process.env.BOT_CHANNEL);
+			await message
+				.reply({
+					embed: {
+						color: `#${process.env.COLOR_ERROR}`,
+						title: '!stats',
+						description: `Oops! Stats can only be accessed within ${name}`,
+						footer: {
+							text: 'Auto destruct in 10 seconds..'
+						}
+					}
+				})
+				.then((r) => r.delete({ timeout: 10000 }))
+				.catch((e) => console.log('[ERROR REMOVING MESSAGE]', e));
 		}
 		else {
-			switch (command.type) {
-				case '!stats': {
-					await message.delete();
-					switch (command.name) {
-						case 'social': return await client.commands.get('social').execute(message, command);
-						case 'ranked': return await client.commands.get('ranked').execute(message, command);
-						default:
-							return await message
-								.reply({
-									embed: {
-										color: 0xd32f2f,
-										title: '!stats',
-										description: 'Missing required arguments!',
-										fields: [
-											{
-												name: 'Command',
-												value: "!stats <social|ranked> <gamertag>"
-											}
-										],
-										footer: {
-											text: 'Auto destruct in 5 seconds..'
-										}
-									}
-								})
-								.then(reply => {
-									reply.delete({ timeout: 5000 });
-								})
-								.catch(error => {
-									console.log(error);
-								});
-					}
-				}
+
+			let command = commands.build(message);
+			if (command === null || !isKnownCommand(command.type)) {
+				await message
+					.reply({
+						embed: {
+							color: `#${process.env.COLOR_ERROR}`,
+							title: 'Stats',
+							description: `The specified command '${command.type}' is not valid! Examples:`,
+							fields: [
+								{
+									name: 'Social',
+									value: '**!social** *<gamertag>*',
+									inline: true
+								},
+								{
+									name: 'Ranked',
+									value: '**!ranked** *<gamertag>*',
+									inline: true
+								},								
+								{
+									name: 'Hardcore',
+									value: '**!hc** *<gamertag>*',
+									inline: true
+								},
+							],
+							footer: {
+								text: 'Auto destruct in 10 seconds..'
+							}
+						}
+					})
+					.then((r) => r.delete({ timeout: 10000 }))
+					.catch((e) => console.log('[ERROR REMOVING MESSAGE]', e));
 			}
+			else {
+				switch (command.type) {
+					case '!hc': return await client.commands.get('hardcore').execute(message, command);					
+					case '!social':
+					case '!ranked': 
+						switch (command.type) {				
+							case '!social': return await client.commands.get('social').execute(message, command);
+							case '!ranked': return await client.commands.get('ranked').execute(message, command);
+						}
+					break;
+				}
+
+			}
+
 		}
+
 	}
 	catch (e) {
 		console.error('', e);

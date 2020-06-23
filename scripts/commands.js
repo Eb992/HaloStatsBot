@@ -34,24 +34,16 @@ function build(message) {
 		return null;
 	}
 	else {
-
 		let commandType = (data.length >= 1) 
 			? data[0].toLowerCase() 
 			: null;
-
-		let commandName = (data.length >= 2) 
-			? data[1].toLowerCase() 
+		let commandArgs = (data.length >= 2) 
+			? (data.length === 2)
+				? data[1]
+				: message.content.substr((commandType.length + 1)) || null
 			: null;
-
-		let commandArgs = (data.length >= 3) 
-			? (data.length === 3)
-				? data[2]
-				: message.content.substr((commandType.length + 1) + (commandName.length + 1)) || null
-			: null;
-
 		return {
 			type: commandType,
-			name: commandName,
 			args: commandArgs
 		};
 	}
