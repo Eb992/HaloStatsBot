@@ -27,12 +27,8 @@ async function execute(message, command) {
 									description: 'Player has not played any games'
 								}
 							})						
-							.then(reply => {
-								reply.delete({ timeout: 5000 });
-							})
-							.catch(error => {
-								console.log(error);
-							});
+							.then((r) => r.delete({ timeout: 10000 }))
+							.catch((e) => console.log('[ERROR REMOVING MESSAGE]', e));
 					}
 					else {
 						message
@@ -48,9 +44,8 @@ async function execute(message, command) {
 									footer: 'Ranked Playlist Stats'
 								}
 							})
-							.catch(error => {
-								console.log(error);
-							});
+							.then((r) => r.delete({ timeout: 15000 }))
+							.catch((e) => console.log('[ERROR REMOVING MESSAGE]', e));
 					}
 				})
 				.catch(error => {
