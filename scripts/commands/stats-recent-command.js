@@ -69,7 +69,7 @@ async function execute(message, command) {
 										url: match.map.image,
 									},
 									footer: {
-										text: 'Some footer text here'
+										text: 'Stats provided by https://mccstats.com'
 									},
 								}
 							})
