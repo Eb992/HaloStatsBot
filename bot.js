@@ -15,7 +15,8 @@ const isKnownCommand = (value) => {
 	switch (value.toLowerCase()) {
 		case '!hc':
 		case '!social':
-		case '!ranked': return true;
+		case '!ranked': 
+		case '!recent': return true;
 		default:
 			return false;
 	}
@@ -44,7 +45,7 @@ client.on('message', async (message) => {
 		await message.delete()
 			.catch((e) => console.log('[ERROR REMOVING MESSAGE]', e));
 
-		if (message.channel.id !== process.env.BOT_CHANNEL) {
+		if (message.channel.id !== process.env.BOT_CHANNEL || message.channel.id !== '724349125570855072') {
 			let name = await utilities.getChannelName(client, process.env.BOT_CHANNEL);
 			await message
 				.reply({
@@ -105,6 +106,7 @@ client.on('message', async (message) => {
 							case '!ranked': return await client.commands.get('ranked').execute(message, command);
 						}
 					break;
+					case '!recent': return await client.commands.get('recent').execute(message, command);
 				}
 
 			}
