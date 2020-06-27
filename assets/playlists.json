@@ -1,20 +1,20 @@
 {
-    "playlists": {
+    "playlists": [
 
-        "composerSmallPC": { "type": "social", "name": "Team Doubles (All)" },
-        "composerMediumPC": { "type": "social", "name": "Team Slayer (All)" },
-        "composerLargePC": { "type": "social", "name": "Big Team Battle (All)" },
-        "composerRumblePC": { "type": "social", "name": "FFA (All)" },
-        "composerInfectionPC": { "type": "social", "name": "Infection (All)" },
+        {"composerSmallPC": { "type": "social", "name": "Team Doubles (All)" }},
+        {"composerMediumPC": { "type": "social", "name": "Team Slayer (All)" }},
+        {"composerLargePC": { "type": "social", "name": "Big Team Battle (All)" }},
+        {"composerRumblePC": { "type": "social", "name": "FFA (All)" }},
+        {"composerInfectionPC": { "type": "social", "name": "Infection (All)" }},
 
-        "hrFirefightArcade0PC": { "type": "ranked", "name": "Firefight Arcade (Reach)" },
-        "hrFirefightDouble0PC": { "type": "ranked", "name": "Firefight Doubles (Reach)" },
-        "hrRankedTeamSlayer0PC": { "type": "ranked", "name": "Team Slayer (Reach)" },
+        {"hrFirefightArcade0PC": { "type": "ranked", "name": "Firefight Arcade (Reach)" }},
+        {"hrFirefightDouble0PC": { "type": "ranked", "name": "Firefight Doubles (Reach)" }},
+        {"hrRankedTeamSlayer0PC": { "type": "ranked", "name": "Team Slayer (Reach)" }},
 
-        "HCERankedDoubles1PC": { "type": "hardcore", "name": "Team Doubles (HCE)" },
-        "h2cRankedHardcore1PC": { "type": "hardcore", "name": "Team Hardcore (H2C)" },
-        "h2aRankedHardcore1PC": { "type": "hardcore", "name": "Team Hardcore (H2A)" },
-        "hrHardcore0PC": { "type": "hardcore", "name": "Team Hardcore (Reach)" }
+        {"HCERankedDoubles1PC": { "type": "hardcore", "name": "Team Doubles (HCE)" }},
+        {"h2cRankedHardcore1PC": { "type": "hardcore", "name": "Team Hardcore (H2C)" }},
+        {"h2aRankedHardcore1PC": { "type": "hardcore", "name": "Team Hardcore (H2A)" }},
+        {"hrHardcore0PC": { "type": "hardcore", "name": "Team Hardcore (Reach)" }}
 
-    }
+    ]
 }
