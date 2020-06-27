@@ -1,0 +1,20 @@
+{
+    "social": {
+        "composerSmallPC": { "name": "Team Doubles (All)" },
+        "composerMediumPC": { "name": "Team Slayer (All)" },
+        "composerLargePC": { "name": "Big Team Battle (All)" },
+        "composerRumblePC":   { "name": "FFA (All)" },
+        "composerInfectionPC": { "name": "Infection (All)" }
+    },
+    "ranked": {
+        "hrFirefightArcade0PC": { "name": "Firefight Arcade (Reach)" },
+        "hrFirefightDouble0PC": { "name": "Firefight Doubles (Reach)" },
+        "hrRankedTeamSlayer0PC": { "name": "Team Slayer (Reach)" }
+    },
+    "hardcore": {
+        "HCERankedDoubles1PC": { "name": "Team Doubles (HCE)" },
+        "h2cRankedHardcore1PC": { "name": "Team Hardcore (H2C)" },
+        "h2aRankedHardcore1PC": { "name": "Team Hardcore (H2A)" },
+        "hrHardcore0PC":   { "name": "Team Hardcore (Reach)" }
+    }
+}
