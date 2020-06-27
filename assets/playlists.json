@@ -1,20 +1,20 @@
 {
-    "playlists": [
+    "playlists": {
 
-        { "type": "social", "name": "composerSmallPC", "value": "Team Doubles (All)" },
-        { "type": "social", "name": "composerMediumPC", "value": "Team Slayer (All)" },
-        { "type": "social", "name": "composerLargePC", "value": "Big Team Battle (All)" },
-        { "type": "social", "name": "composerRumblePC", "value": "FFA (All)" },
-        { "type": "social", "name": "composerInfectionPC", "value": "Infection (All)" },
+        "composerSmallPC": { "type": "social", "name": "Team Doubles (All)" },
+        "composerMediumPC": { "type": "social", "name": "Team Slayer (All)" },
+        "composerLargePC": { "type": "social", "name": "Big Team Battle (All)" },
+        "composerRumblePC": { "type": "social", "name": "FFA (All)" },
+        "composerInfectionPC": { "type": "social", "name": "Infection (All)" },
 
-        { "type": "ranked", "name": "hrFirefightArcade0PC", "value": "Firefight Arcade (Reach)" },
-        { "type": "ranked", "name": "hrFirefightDouble0PC", "value": "Firefight Doubles (Reach)" },
-        { "type": "ranked", "name": "hrRankedTeamSlayer0PC", "value": "Team Slayer (Reach)" },
+        "hrFirefightArcade0PC": { "type": "ranked", "name": "Firefight Arcade (Reach)" },
+        "hrFirefightDouble0PC": { "type": "ranked", "name": "Firefight Doubles (Reach)" },
+        "hrRankedTeamSlayer0PC": { "type": "ranked", "name": "Team Slayer (Reach)" },
 
-        { "type": "hardcore", "name": "HCERankedDoubles1PC", "value": "Team Doubles (HCE)" },
-        { "type": "hardcore", "name": "h2cRankedHardcore1PC", "value": "Team Hardcore (H2C)" },
-        { "type": "hardcore", "name": "h2aRankedHardcore1PC", "value": "Team Hardcore (H2A)" },
-        { "type": "hardcore", "name": "hrHardcore0PC", "value": "Team Hardcore (Reach)" }
+        "HCERankedDoubles1PC": { "type": "hardcore", "name": "Team Doubles (HCE)" },
+        "h2cRankedHardcore1PC": { "type": "hardcore", "name": "Team Hardcore (H2C)" },
+        "h2aRankedHardcore1PC": { "type": "hardcore", "name": "Team Hardcore (H2A)" },
+        "hrHardcore0PC": { "type": "hardcore", "name": "Team Hardcore (Reach)" }
 
-    ]
+    }
 }
